@@ -1,0 +1,58 @@
+CREATE SCHEMA `laboratorio` ;
+
+CREATE  TABLE `laboratorio`.`utenti` (
+  `username` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NULL ,
+  `nome` VARCHAR(45) NULL ,
+  `cognome` VARCHAR(45) NULL ,
+  `ruolo` VARCHAR(45) NULL ,
+  PRIMARY KEY (`username`) );
+
+
+CREATE  TABLE `laboratorio`.`ruoli` (
+  `id_ruolo` VARCHAR(45) NOT NULL ,
+  `descrizione` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id_ruolo`) );
+
+
+ALTER TABLE `laboratorio`.`utenti` 
+  ADD CONSTRAINT `utente2ruolo`
+  FOREIGN KEY (`ruolo` )
+  REFERENCES `laboratorio`.`ruoli` (`id_ruolo` )
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION
+, ADD INDEX `utente2ruolo_idx` (`ruolo` ASC) ;
+
+
+CREATE  TABLE `laboratorio`.`automi` (
+  `id_automa` VARCHAR(45) NOT NULL ,
+  `nome` VARCHAR(45) NULL ,
+  `versione` VARCHAR(45) NULL ,
+  `sistema_operativo` VARCHAR(45) NULL ,
+  `componente` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id_automa`) );
+
+
+CREATE  TABLE `laboratorio`.`componenti` (
+  `id_componenti` VARCHAR(45) NOT NULL ,
+  `nome` VARCHAR(45) NULL ,
+  `automa` VARCHAR(45) NULL ,
+  `prezzo` VARCHAR(45) NULL ,
+  `standard` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id_componenti`) );
+
+CREATE  TABLE `laboratorio`.`automi2componenti` (
+  `id_automa` VARCHAR(45) NULL ,
+  `id_componente` VARCHAR(45) NULL ,
+  INDEX `automa_has_many_componeti_idx` (`id_componente` ASC) ,
+  INDEX `componente_has_many_automi_idx` (`id_automa` ASC) ,
+  CONSTRAINT `automa_has_many_componeti`
+    FOREIGN KEY (`id_componente` )
+    REFERENCES `laboratorio`.`componenti` (`id_componenti` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `componente_has_many_automi`
+    FOREIGN KEY (`id_automa` )
+    REFERENCES `laboratorio`.`automi` (`id_automa` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
