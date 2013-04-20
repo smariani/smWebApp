@@ -2,7 +2,7 @@ package it.geek.laboratorio.model;
 
 import java.util.*;
 
-public class Componente {
+public class Componente extends Entity {
 	
 	private String id;
 	private String nome;

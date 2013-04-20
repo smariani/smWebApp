@@ -1,6 +1,6 @@
 package it.geek.laboratorio.model;
 
-public class Utente {
+public class Utente extends Entity {
 	
 	private String username;
 	private String password;
@@ -12,7 +12,7 @@ public class Utente {
 		return (this.username != null);
 	}
 	
-	public boolean existspassword(){
+	public boolean existsPassword(){
 		return (this.password != null);
 	}
 	
@@ -34,7 +34,7 @@ public class Utente {
 				this.existsRuolo()||
 				this.existsCognome()||
 				this.existsNome()||
-				this.existspassword());
+				this.existsPassword());
 	}
 	
 	public String getUsername(){

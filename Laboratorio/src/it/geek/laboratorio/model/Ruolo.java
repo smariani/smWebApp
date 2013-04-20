@@ -1,6 +1,6 @@
 package it.geek.laboratorio.model;
 
-public class Ruolo {
+public class Ruolo extends Entity {
 	
 	private String id;
 	private String descrizione;

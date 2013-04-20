@@ -2,7 +2,7 @@ package it.geek.laboratorio.model;
 
 import java.util.*;
 
-public class Automa {
+public class Automa extends Entity {
 	
 	private String id;
 	private String nome;
