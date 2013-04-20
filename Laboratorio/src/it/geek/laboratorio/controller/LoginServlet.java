@@ -24,17 +24,25 @@ public class LoginServlet extends HttpServlet implements Servlet {
 		Utente u = ServiceFactory.getUtenteService().get(username);
 		
 		String forward = null;
-		if (u.getPassword().equals(password)){
-			forward = "/Home.jsp";
-			HttpSession session = request.getSession();
-			session.setAttribute("utente", u);
-		}
-		else
+		
+		if (u == null){
+			request.setAttribute("errore", "Username Inesistente");
 			forward = "/Error.jsp";
-				
+		}
+		else{
+			if (u.getPassword().equals(password)){
+				forward = "/Home.jsp";
+				HttpSession session = request.getSession();
+				session.setAttribute("utente", u);
+			}
+			else{
+				forward = "/Error.jsp";
+				request.setAttribute("errore", "Password Errata");
+			}
+		}		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forward);
 		dispatcher.forward(request, response);
-		
 	
 	}
 
