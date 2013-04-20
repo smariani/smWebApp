@@ -49,8 +49,9 @@ public class UtenteDAO implements IDAO<Utente, String> {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Utente u = null;
-		String sql = "SELECT username, password, nome, cognome, ruolo" +
-				"FROM utenti WHERE username=?";
+		Ruolo r = null;
+		String sql = "SELECT username, password, nome, cognome, ruolo, ruoli.descrizione " +
+				"FROM utenti, ruoli WHERE utenti.ruolo=ruoli.id_ruolo AND username=?";
 		
 		try{
 			
@@ -64,6 +65,10 @@ public class UtenteDAO implements IDAO<Utente, String> {
 				u.setPassword(rs.getString("password"));
 				u.setNome(rs.getString("nome"));
 				u.setCognome(rs.getString("cognome"));
+				r = new Ruolo();
+				r.setId(rs.getString("ruolo"));
+				r.setDescrizione(rs.getString("descrizione"));
+				u.setRuolo(r);
 			}
 		}
 		catch(Exception e){

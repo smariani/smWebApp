@@ -56,3 +56,13 @@ CREATE  TABLE `laboratorio`.`automi2componenti` (
     REFERENCES `laboratorio`.`automi` (`id_automa` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+
+INSERT INTO `laboratorio`.`ruoli` (`id_ruolo`, `descrizione`) VALUES ('1', 'Ospite');
+INSERT INTO `laboratorio`.`ruoli` (`id_ruolo`, `descrizione`) VALUES ('2', 'Amministratore');
+INSERT INTO `laboratorio`.`ruoli` (`id_ruolo`, `descrizione`) VALUES ('3', 'Super Amministratore');
+
+
+INSERT INTO `laboratorio`.`utenti` (`username`, `password`, `nome`, `cognome`, `ruolo`) VALUES ('guest', 'guest', 'Stefano', 'Mariani', '1');
+INSERT INTO `laboratorio`.`utenti` (`username`, `password`, `nome`, `cognome`, `ruolo`) VALUES ('admin', 'admin', 'Stefano', 'Rossi', '2');
+INSERT INTO `laboratorio`.`utenti` (`username`, `password`, `nome`, `cognome`, `ruolo`) VALUES ('super', 'super', 'Stefano', 'Verdi', '3');
