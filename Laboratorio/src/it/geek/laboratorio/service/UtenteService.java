@@ -5,7 +5,7 @@ import java.sql.*;
 
 import it.geek.laboratorio.dao.DAOFactory;
 import it.geek.laboratorio.model.Utente;
-import it.geek.lavoratorio.util.LaboratotioDBConnection;
+import it.geek.laboratorio.util.LaboratorioDBConnection;
 
 public class UtenteService implements IService<Utente, String> {
 
@@ -15,7 +15,7 @@ public class UtenteService implements IService<Utente, String> {
 		Utente utente = null;
 		Connection c = null;
 		try{
-			c = LaboratotioDBConnection.getConnection();
+			c = LaboratorioDBConnection.getConnection();
 			utente = DAOFactory.getUtenteDAO().findById(k, c);
 		}
 		catch(Exception e){
@@ -41,8 +41,23 @@ public class UtenteService implements IService<Utente, String> {
 
 	@Override
 	public List<Utente> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Utente> listaUtenti = null;
+		Connection c = null;
+		try{
+			c = LaboratorioDBConnection.getConnection();
+			listaUtenti = DAOFactory.getUtenteDAO().findAll(c);
+		}catch (Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				c.close();
+			}
+			catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		
+		return listaUtenti;
 	}
 
 	@Override
@@ -52,9 +67,24 @@ public class UtenteService implements IService<Utente, String> {
 	}
 
 	@Override
-	public boolean save(Utente e) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean save(Utente u) {
+		Connection c = null;
+		try{
+			c = LaboratorioDBConnection.getConnection();
+			DAOFactory.getUtenteDAO().insert(u, c);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				c.close();
+			}
+			catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		
+		return true;
 	}
 
 }

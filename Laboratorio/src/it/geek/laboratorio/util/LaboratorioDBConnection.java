@@ -1,10 +1,10 @@
-package it.geek.lavoratorio.util;
+package it.geek.laboratorio.util;
 
 import java.sql.*;
 import javax.naming.InitialContext;
 import javax.sql.*;
 
-public class LaboratotioDBConnection {
+public class LaboratorioDBConnection {
 	
 	public static Connection getConnection(){
 		try{
