@@ -31,9 +31,13 @@ public class ComponenteService implements IService<Componente, String> {
 	}
 
 	@Override
-	public boolean save(Componente e) {
+	public boolean insert(Componente e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	
+	public boolean update(Componente e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

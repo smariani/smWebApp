@@ -169,11 +169,38 @@ public class UtenteDAO implements IDAO<Utente, String> {
 	}
 
 	@Override
-	public boolean update(Utente e, Connection c) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(Utente u, Connection c) {
+		
+		PreparedStatement ps = null;
+		String sql = "UPDATE utenti SET username=?, password=?, nome=?, cognome=?, ruolo=? WHERE username=?";
+		
+		try{
+			ps = c.prepareStatement(sql);
+			ps.setString(1, u.getUsername());
+			ps.setString(2, u.getPassword());
+			ps.setString(3, u.getNome());
+			ps.setString(4, u.getCognome());
+			ps.setString(5, u.getRuolo().getId());
+			ps.setString(6, u.getUsername());
+			
+			ps.execute();
+		} 
+		catch(Exception e){
+			e.printStackTrace();	
+			}
+		finally{
+			
+			try{
+				ps.close();
+			}
+			catch(Exception e){
+				System.out.println("Impossibile chiudere il Prepared Statement");
+				e.printStackTrace();
+			}
+		}
+		return true;
 	}
-
+	
 	@Override
 	public boolean delete(String k, Connection c) {
 		// TODO Auto-generated method stub

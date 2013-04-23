@@ -12,7 +12,6 @@
 			password <input type="text" name="password"/><br/>
 			Nome <input type="text" name="nome"/><br/>
 			Cognome <input type="text" name="cognome"/><br/>
-			id <input type="text" name="id"/><br/>
 			Ruolo <select name="ruolo">
 				<option value="1">Ospite</option>
 				<option value="2">Amministratore</option>

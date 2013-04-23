@@ -61,6 +61,16 @@
 		<servlet-name>insertUtente</servlet-name>
 		<url-pattern>/InserisciUtente</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ModificaUtente</servlet-name>
+		<servlet-class>it.geek.laboratorio.controller.ModificaUtente</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ModificaUtente</servlet-name>
+		<url-pattern>/ModificaUtente</url-pattern>
+	</servlet-mapping>
 
 
 </web-app>

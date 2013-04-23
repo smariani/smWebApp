@@ -31,7 +31,12 @@ public class AutomaService implements IService<Automa, String> {
 	}
 
 	@Override
-	public boolean save(Automa e) {
+	public boolean insert(Automa e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public boolean update(Automa e) {
 		// TODO Auto-generated method stub
 		return false;
 	}

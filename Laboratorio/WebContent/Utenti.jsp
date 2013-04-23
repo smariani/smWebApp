@@ -30,9 +30,9 @@
 				<td> <%= u.getCognome() %></td>
 				<td> <%= u.getUsername() %></td>
 				<td> <%= u.getPassword() %></td>
-				<td> <a href="UtenteOperation?op=view&id= <%= u.getUsername() %> "> Visualizza</a></td>
-				<td> <a href="UtenteOperation?op=update&id= <%= u.getUsername() %> "> Modifica</a></td>
-				<td> <a href="UtenteOperation?op=delete&id= <%= u.getUsername() %> "> Cancella</a></td>
+				<td> <a href="UtenteOperation?op=view&id=<%= u.getUsername() %>"> Visualizza</a></td>
+				<td> <a href="UtenteOperation?op=update&id=<%= u.getUsername() %>"> Modifica</a></td>
+				<td> <a href="UtenteOperation?op=delete&id=<%= u.getUsername() %>"> Cancella</a></td>
 			</tr>
 			<% } %>
 		</table>

@@ -9,6 +9,7 @@ public interface IService<E extends Entity, K> {
 	public List<E> get(E e);
 	public List<E> getAll();
 	public boolean delete(K k);
-	public boolean save(E e);
+	public boolean insert(E e);
+	public boolean update(E e);
 
 }

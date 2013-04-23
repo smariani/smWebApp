@@ -67,7 +67,7 @@ public class UtenteService implements IService<Utente, String> {
 	}
 
 	@Override
-	public boolean save(Utente u) {
+	public boolean insert(Utente u) {
 		Connection c = null;
 		try{
 			c = LaboratorioDBConnection.getConnection();
@@ -84,6 +84,25 @@ public class UtenteService implements IService<Utente, String> {
 			}
 		}
 		
+		return true;
+	}
+	
+	public boolean update(Utente u){
+		Connection c = null;
+		try{
+			c = LaboratorioDBConnection.getConnection();
+			DAOFactory.getUtenteDAO().update(u, c);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				c.close();
+			}
+			catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
 		return true;
 	}
 

@@ -31,7 +31,12 @@ public class RuoloService implements IService<Ruolo, String> {
 	}
 
 	@Override
-	public boolean save(Ruolo e) {
+	public boolean insert(Ruolo e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	public boolean update(Ruolo e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
