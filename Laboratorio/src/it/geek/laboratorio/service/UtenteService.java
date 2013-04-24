@@ -3,11 +3,16 @@ package it.geek.laboratorio.service;
 import java.util.List;
 import java.sql.*;
 
+import org.apache.log4j.Logger;
+
+import it.geek.laboratorio.controller.InserisciUtente;
 import it.geek.laboratorio.dao.DAOFactory;
 import it.geek.laboratorio.model.Utente;
 import it.geek.laboratorio.util.LaboratorioDBConnection;
 
 public class UtenteService implements IService<Utente, String> {
+	
+	private static Logger log = Logger.getLogger(UtenteService.class);
 
 	@Override
 	public Utente get(String k) {
@@ -19,6 +24,7 @@ public class UtenteService implements IService<Utente, String> {
 			utente = DAOFactory.getUtenteDAO().findById(k, c);
 		}
 		catch(Exception e){
+			log.error(utente);
 			e.printStackTrace();
 		}
 		finally{
