@@ -9,12 +9,32 @@
   <welcome-file-list>
     <welcome-file>ingresso.html</welcome-file>
   </welcome-file-list>
+  
   <servlet>
     <servlet-name>Riconoscimento</servlet-name>
     <servlet-class>it.geek.prenotazioni.controller.RiconoscimentoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Riconoscimento</servlet-name>
-    <url-pattern>/home</url-pattern>
+    <url-pattern>/RiconoscimentoServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>PrenotaCorso</servlet-name>
+  	<servlet-class>it.geek.prenotazioni.controller.PrenotaCorso</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>PrenotaCorso</servlet-name>
+  	<url-pattern>/PrenotaCorso</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<servlet-class>it.geek.prenotazioni.controller.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+    
 </web-app>
